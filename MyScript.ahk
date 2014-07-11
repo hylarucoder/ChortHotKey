@@ -6,16 +6,23 @@ SetTitleMatchMode, RegEx
 CoordMode, Mouse, Screen
 DetectHiddenWindows, On
 SetScrollLockState, Off
+SetCapsLockState, AlwaysOff
+
 
 If FileExist("lib\OtherRes\pal4.ico")
-	Menu, Tray, Icon, lib\OtherRes\pal4.ico
+    Menu, Tray, Icon, lib\OtherRes\pal4.ico
 
 Menu, Tray, Tip, MyScripts
+
+;Command mode
+
+
+
 ;;输入管理涉及到邮箱账号
 ;blog输入管理    声明 + 日期
 
 :o:sm~::
-sendinput ,博客文章原创声明：`n本博客的全部文章,均为本人原创，本人拥有其版权。转载请附上原文地址,请不要用於商业用途。本人才疏学浅，如有错误，欢迎指正。联系方式twocucao@gmail.com。
+sendinput ,%Claim%
 return
 
 
@@ -24,7 +31,10 @@ return
 :o:g@::twocucao@gmail.com
 
 
-
+F1::
+fastTxt(onedrive)
+CancelToolTip()
+return
 ;;常用程序的设计 win+按键
 
 ;;文件管理，窗口管理，功能性管理^+
@@ -36,6 +46,7 @@ return
 
 #F1::		ShowDir("D:\OneDrive")
 #F2::		ShowDir("D:\SCRIPTS")
+
 #F3::       
 file := CopySelection()
 if file = 

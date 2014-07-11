@@ -1,4 +1,15 @@
-;open the folder
+;open the foldere
+
+fastTxt(onedrive)
+{
+    Clipboard = 
+    Send , ^c
+    ClipWait,2
+    FileAppend ,%clipboard%,%onedrive%\TEMP\Test.txt
+    FileAppend ,`r`n,%onedrive%\TEMP\Test.txt
+    ToolTip ,%Clipboard%
+    Return
+}
 ShowDir(path)
 {
 	ifExist, %path%
@@ -119,7 +130,7 @@ CapsNav(action, initmod = "", mod = "+")
 
 SublimeOpen(file,SublimeText3) ; Refocuses Sublime if file is opened while focused
 {
-    Msgbox %SublimeText3%
+;    Msgbox %SublimeText3%
     Run %SublimeText3% %file%
     Sleep 50
     WinActivate, ahk_class PX_WINDOW_CLASS
