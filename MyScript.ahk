@@ -43,11 +43,15 @@ return
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;; Folder Shortcuts ;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;近期常用目录
+^+1::		ShowDir("D:\SkyItachi\Desktop\GitHubCode")
+^+2::		ShowDir("D:\学习资料\编程必备")
+;云端备份目录
+^+3::		ShowDir("D:\OneDrive\HomeShare")
+;开源代码目录
+^+4::		ShowDir("D:\OneDrive\HomeShare")
 
-#F1::		ShowDir("D:\OneDrive")
-#F2::		ShowDir("D:\SCRIPTS")
-
-#F3::       
+^!s::       
 file := CopySelection()
 if file = 
     return
@@ -84,14 +88,15 @@ return
 ;blog声明
 
 ;;run programs ----- code programing chatting browse
-#s::Run %SublimeText3%
+;#s::Run %SublimeText3%
 #q::Run D:\SCRIPTS\qq.lnk
-#b::run www.baidu.com
+
 
 
 
 ;;run enhanced pro
 ^+g::run D:\SCRIPTS\go.lnk
+
 
 
 
@@ -110,7 +115,7 @@ return
 ; 显示 / 隐藏 隐藏系统文件：
 ; 作者： iLEMONed
 ; http://cn.ilemoned.com/
-^!+h::
+^+h::
 If value = 1
 value = 2
 Else
@@ -124,7 +129,7 @@ return
 ; 作者： iLEMONed
 ; http://cn.ilemoned.com/
 
-^!+e::
+^+e::
 If value = 0
 value = 1
 Else
@@ -153,7 +158,7 @@ return
 
 
 ;;打开文件的属性窗口
-^p::
+^+p::
 send ^c 
 sleep,100
 IfExist, %clipboard%
@@ -193,6 +198,7 @@ if path =
 MouseGetPos,x0
 clipboard = %path%
 tooltip Path: "%clipboard%" copied
+
 CancelToolTip()
 return
 
@@ -209,8 +215,8 @@ CancelToolTip()
 return
 
 
-;;Ctrl+Alt+O: Treat selected text as a local path, and select it in Explorer.
-^!o::
+;;alt + 0: Treat selected text as a local path, and select it in Explorer.
+!0::
 path := CopySelection()
 ifExist, %path%
 {
@@ -242,6 +248,30 @@ $#G::
 
     Run %addr%
     return
+
+$#b::
+    ;Tip("Clipping...")  ;; include my mouse-tip library for this https://gist.github.com/2400547
+    clip := CopyToClipboard()
+    if (!clip) {
+        return
+    }
+    addr := ExtractAddress(clip)
+    if (!addr)
+    {
+        ; Google it
+        ;Tip("Searching for [" SubStr(clip, 1, 50) "] ...")
+        addr := "http://www.baidu.com/s?wd=" . clip
+    }
+    else {
+        ; Go to it using system's default methods for the address
+        ;Tip("Going to " Substr(addr, 1, 25) " ...")
+    }
+
+    Run %addr%
+    return
+
+
+
 
 ;; utility functions
 
