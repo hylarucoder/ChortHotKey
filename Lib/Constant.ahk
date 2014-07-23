@@ -1,7 +1,8 @@
 ﻿;some Constant
 ;program
 SublimeText3 := "D:\SCRIPTS\st.lnk"
-
+QQ := "D:\SCRIPTS\qq.lnk"
+Go := "D:\SCRIPTS\go.lnk"
 
 
 

@@ -30,7 +30,7 @@ return
 ;;Gmail地址缩写  常用邮箱以及账号管理
 :o:g@::twocucao@gmail.com
 
-
+;;快速拷贝到onedrive
 F1::
 fastTxt(onedrive)
 CancelToolTip()
@@ -44,13 +44,17 @@ return
 ;;;; Folder Shortcuts ;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;近期常用目录
-^+1::		ShowDir("D:\SkyItachi\Desktop\GitHubCode")
+^+1::		ShowDir("D:\SkyItachi\Documents\GitHub\MyAHK")
 ^+2::		ShowDir("D:\学习资料\编程必备")
 ;云端备份目录
 ^+3::		ShowDir("D:\OneDrive\HomeShare")
-;开源代码目录
-^+4::		ShowDir("D:\OneDrive\HomeShare")
+;视频
+^+4::		ShowDir("D:\WDJDownload\Videos\老友记")
 
+
+
+
+;sublimeText3
 ^!s::       
 file := CopySelection()
 if file = 
@@ -58,7 +62,12 @@ if file =
 MouseGetPos,x0
 SublimeOpen(file,SublimeText3)
 return
+#s::
+Run, %SublimeText3%
+return
 
+
+;快速关闭
 ~Esc::
 Keywait, Escape, , t0.5
 if errorlevel = 1
@@ -73,29 +82,15 @@ return
 }
 return
 
-
-
-
-
-
-;;;;;;;;;
-
-
-
-
-
 ;;文章开头
 ;blog声明
 
 ;;run programs ----- code programing chatting browse
 ;#s::Run %SublimeText3%
-#q::Run D:\SCRIPTS\qq.lnk
-
-
-
+#q::Run %QQ%
 
 ;;run enhanced pro
-^+g::run D:\SCRIPTS\go.lnk
+^+g::run %Go%
 
 
 
