@@ -1,0 +1,117 @@
+Readme for Snarl_CMD.exe
+
+1. What is it
+2. Sending simple alerts
+3. Sending alerts with classes / registering within Snarl
+4. Known limitations
+5. Changes
+8. Homepage
+7. License
+
+
+
+=== 1. What is it ===
+
+Snard_CMD.exe is a command line tool to send notifications using the general notifcation system Snarl available for Windows at http://www.fullphat.net/
+It can be used directly from the command line or from any scipting you prefer (Perl, Batch, ...)
+
+
+=== 2. Sending simple alerts ===
+
+With Snarl_CMD.exe you can send simple notifications to Snarl by using the following syntax:
+
+  > Snarl_CMD.exe snShowMessage TIME TITLE BODY [iconPATH] 
+
+where TIME is the time the message should be displayed in seconds (0 means forever/sticky), TITLE and BODY are the texts which should be displayed and iconPath is the windows path ("C:\my\path\img.png" or "\\server\path\on\server\img.png") for an icon to be displayed in the notifcation.
+
+Examples:
+
+  > Snarl_CMD.exe snShowMessage 10 "Hello" "World"
+  > Snarl_CMD.exe snShowMessage 10 "With an" "icon" "C:\my\path\myImg.png"
+  
+  
+=== 3. Sending alerts with classes / registering within Snarl ===
+
+Snarl has the possibility to register your application and define some different alert classes which can be customized by the user.
+For example the user can decide that he wants alert type 1 in red, alert type 2 in blue and alert type 3 to be not shown.
+To achieve something like this there have to be a registration before you send alerts. So theses are the steps you need to follow for that goal:
+
+  > Snarl_CMD.exe generateSnarlMessageWindow UNIQUENAMEFORAWINDOW
+  
+This is used to open and let open an invisible window which will be used for any further communication between you and Snarl. The process will stay open in the background and keep care if Snarl is reregistered during execution
+
+  > Snarl_CMD.exe snRegisterConfigEx UNIQUENAMEFORAWINDOW APPNAME ICON
+
+AppName is the name displayed in the settings within Snarl. If you put a complete path (c:\...) into "ICON" the settings will show this image next to the AppName
+Next you can register some alert classes
+
+  > Snarl_CMD.exe snRegisterAlert UNIQUENAMEFORAWINDOW APPNAME ALERTCLASS
+
+Now we are ready to send notifications to Snarl - this is done with following line:
+
+  > Snarl_CMD.exe snShowMessageEx UNIQUENAMEFORAWINDOW TIME TITLE TEXT ALERTCLASS ICON [SOUNDFILE]
+  
+When you finish with sending all notifications (e. g. when you sending script is over) be sure to unregister the open communication window from Snarl - otherwise it'll stay open all the time
+
+  > Snarl_CMD.exe snRevokeConfig UNIQUENAMEFORAWINDOW
+  
+Example:
+Let's make an example on howto register an app called myFirstApp
+  > Snarl_CMD.exe generateSnarlMessageWindow myFirstAppCommunicationWindow
+  > Snarl_CMD.exe snRegisterConfigEx myFirstAppCommunicationWindow myFirstApp "C:\myPicture.png"
+  > Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Greeting"
+  > Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Update message"
+  > Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Good bye"
+  > Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Hello, I just started" "It is working" "Greeting" "C:\myPicture.png"
+  > Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Update available" "There is an update available for the cool script I wrote for you. Have a look at..." "Update message" "C:\myPicture.png"
+  > Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Will close now" "See you" "Good bye" "C:\myPicture.png"
+  > Snarl_CMD.exe snRevokeConfig myFirstAppCommunicationWindow
+  
+
+=== 4. Known limitations ===
+
+a) "generateSnarlMessageWindow" possibly needs some time to open the window in the background - so maybe it's a good idea to wait some seconds before starting snRegisterConfigEx
+b) there is no output at all from Snarl_CMD.exe. This is not a bug but a feature. If you are using it out of a scripting environment an open command line window would be needed...
+c) the API from Snarl has some more possibilities (updating or hiding messages for example) which can't be used by design of the command line tool
+
+=== 5. Changes ===
+
+1.0
+App and alert classes are automatically reregistered on Snarl restart (see new parameter in snRegisterAlert for myFirstAppCommunicationWindow) - old syntax still supported but no reregistering in this case.
+
+0.3
+All commands are case insensitve now
+Help text shown (as Snarl notification) if you start Snarl_CMD without any params or with the param "help"
+Fixed crash on start without any params
+
+0.2
+Added Sending alerts with classes / registering within Snarl
+Added this howto
+
+0.1 
+Initial release with only sending simple alerts possible
+
+
+=== 6. Homepage ===
+
+Find more informations and some other tools around Snarl at http://tlhan-ghun.de/
+
+
+=== 6. License ===
+
+Snarl_CMD.exe is licensed under GPL v3.0.
+The sourceode is available at sourceforge https://sourceforge.net/project/showfiles.php?group_id=208109&package_id=270718 
+View it in your browser at http://mozillasnarls.svn.sourceforge.net/viewvc/mozillasnarls/Snarl_CMD/
+
+=== Appendix ===
+Complete Example:
+
+Snarl_CMD.exe generateSnarlMessageWindow myFirstAppCommunicationWindow
+Snarl_CMD.exe snRegisterConfigEx myFirstAppCommunicationWindow myFirstApp "C:\myPicture.png"
+Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Greeting"
+Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Update message"
+Snarl_CMD.exe snRegisterAlert myFirstAppCommunicationWindow myFirstApp "Good bye"
+Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Hello, I just started" "It is working" "Greeting" ""
+Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Update available" "There is an update available for the cool script I wrote for you. Have a look at..." "Update message" ""
+Snarl_CMD.exe snShowMessageEx myFirstAppCommunicationWindow 10 "Will close now" "See you" "Good bye" ""
+Snarl_CMD.exe snRevokeConfig myFirstAppCommunicationWindow

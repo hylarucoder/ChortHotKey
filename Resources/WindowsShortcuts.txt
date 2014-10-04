@@ -1,0 +1,8 @@
+Win+T/Win+Shift+T = Thumbnail cycling
+Shift+Click = New instance
+Win+D = Show desktop
+Win+F = Search
+Win+L = Lock
+Shift+F10 = Right click
+Win+B = System Tray
+Win+R = Run

@@ -1,7 +1,10 @@
 ﻿;快捷键定制
-#include lib\func.ahk
-#include lib\Constant.ahk
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;库文件;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+#include lib\HotStringConstant.ahk
+#include lib\MySystemConstant.ahk
+#include lib\Textfunction.ahk
+#include lib\Appfunction.ahk
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;初始状态设置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 SetTitleMatchMode, RegEx
 CoordMode, Mouse, Screen
 DetectHiddenWindows, On
@@ -14,25 +17,32 @@ If FileExist("lib\OtherRes\pal4.ico")
 
 Menu, Tray, Tip, MyScripts
 
-;Command mode
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
-;;输入管理涉及到邮箱账号
-;blog输入管理    声明 + 日期
-
-:o:sm~::
-sendinput ,%Claim%
+;启动TC
+;老板键设置
+#e::
+openTc(P_TotalCMD)
 return
+#q::Run %QQ%
+
+;;run enhanced pro
+^+g::run %Go%
 
 
+^+c::
+OpenCmdInCurrent()
+return
+; 这个必须要在英文环境（win7）或者中文（XP）下才可以正常运作
 
-;;Gmail地址缩写  常用邮箱以及账号管理
-:o:g@::twocucao@gmail.com
-
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;快速拷贝到onedrive
 F1::
-fastTxt(onedrive)
+Txt2TEMP(onedrive)
 CancelToolTip()
 return
 ;;常用程序的设计 win+按键
@@ -40,63 +50,30 @@ return
 ;;文件管理，窗口管理，功能性管理^+
 
 
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;;;; Folder Shortcuts ;;;;;
-;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;近期常用目录
-^+1::		ShowDir("D:\SkyItachi\Documents\GitHub\MyAHK")
-^+2::		ShowDir("D:\学习资料\编程必备")
+^+1::		ShowDir(F_StudyNow)
+^+2::		ShowDir(F_Downloads)
 ;云端备份目录
-^+3::		ShowDir("D:\OneDrive\HomeShare")
+^+3::		ShowDir(F_TEMP)
 ;视频
-^+4::		ShowDir("D:\WDJDownload\Videos\老友记")
+^+4::		ShowDir(F_DocAndCode)
 
 
 
 
 ;sublimeText3
-^!s::       
-file := CopySelection()
-if file = 
-    return
-MouseGetPos,x0
-SublimeOpen(file,SublimeText3)
+^!s::
+OpenAHK()
 return
+
 #s::
-Run, %SublimeText3%
+Run, %P_SublimeText3%
 return
-
-
-;快速关闭
-~Esc::
-Keywait, Escape, , t0.5
-if errorlevel = 1
-return
-else
-Keywait, Escape, d, t0.1
-if errorlevel = 0
-{
-WinGetActiveTitle, Title
-WinClose, %Title%
-return
-}
-return
-
-;;文章开头
-;blog声明
-
-;;run programs ----- code programing chatting browse
-;#s::Run %SublimeText3%
-#q::Run %QQ%
-
-;;run enhanced pro
-^+g::run %Go%
-
-
 
 
 ;文件夹管理  以今的时间作为命名标准
-^+f::
+^+m::
         ; 第一行增加快捷键
 Send, ^+n
 Sleep, 125
@@ -137,78 +114,25 @@ return
 
 
 
-
-
-
-;;窗口管理
-^!F4::
-WinGetActiveTitle, Title
-WinGet, PID, PID, %Title%
-MsgBox, 0x104, Kill "%Title%", which PID is %PID%, `n Continue?
-IfMsgBox, No
-    return
-Process, Close, %PID%
-return
-
-
-
-;;打开文件的属性窗口
-^+p::
-send ^c 
-sleep,100
-IfExist, %clipboard%
-    Run, properties %clipboard%
-
-
-
 ;;Alt+1 copy文件名 
 !1::
-path := CopySelection()
-if path = 
-    return
-SplitPath, path, name 
-clipboard = %name%
-MouseGetPos,x0
-tooltip File name: "%clipboard%" copied.
-CancelToolTip()
-return 
+GetFileName()
+return
 
 ;;alt+2 copy 此文件所在的路径名 
 !2:: 
-path := CopySelection()
-if path = 
-    return
-SplitPath, path, , dir 
-clipboard = %dir%
-MouseGetPos,x0
-tooltip File Location: "%clipboard%" copied.
-CancelToolTip()
-return 
+GetFileFolderPath()
+return
 
 ;;Alt+3 copy 此文件的全路径名 
 !3:: 
-path := CopySelection()
-if path = 
-    return
-MouseGetPos,x0
-clipboard = %path%
-tooltip Path: "%clipboard%" copied
-
-CancelToolTip()
+GetFilePath()
 return
 
 ;;Alt+4 copy 此文件的全路径名，并对目录分隔符进行转义
 !4:: 
-path := CopySelection()
-if path = 
-    return
-MouseGetPos,x0
-clipboard = "%path%"
-StringReplace, clipboard, clipboard, \, \\, All
-tooltip Text: %clipboard% copied
-CancelToolTip()
+GetFilePath4Win()
 return
-
 
 ;;alt + 0: Treat selected text as a local path, and select it in Explorer.
 !0::
@@ -245,64 +169,75 @@ $#G::
     return
 
 $#b::
-    ;Tip("Clipping...")  ;; include my mouse-tip library for this https://gist.github.com/2400547
-    clip := CopyToClipboard()
-    if (!clip) {
-        return
-    }
-    addr := ExtractAddress(clip)
-    if (!addr)
-    {
-        ; Google it
-        ;Tip("Searching for [" SubStr(clip, 1, 50) "] ...")
-        addr := "http://www.baidu.com/s?wd=" . clip
-    }
-    else {
-        ; Go to it using system's default methods for the address
-        ;Tip("Going to " Substr(addr, 1, 25) " ...")
-    }
+ SearchInBaidu()
+ return
 
-    Run %addr%
-    return
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;输入管理;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;blog输入管理    声明 + 日期
 
-
-
-;; utility functions
-
-
-
-
-#IfWinActive ahk_class CabinetWClass
-; open ‘cmd’ in the current directory
-;
-^+c::
-OpenCmdInCurrent()
+:o:sm~::
+sendinput ,%T_Claim%
 return
-; 这个必须要在英文环境下才可以正常运作
-; Opens the command shell ‘cmd’ in the directory browsed in Explorer.
-; Note: expecting to be run when the active window is Explorer.
+:o:tb~::
+sendinput ,%T_MarkdownTable%
+return
 
-;;
 
-;;;;; CapsNav ;;;;;;;
+;;android XML快捷输入
+;;;;;;;五大布局xml快速输入
+:o:~vrl::
+Clipboard := vrl
+sendinput ,^v{Up}
+return
+:o:~vll::
+Clipboard := vll
+sendinput ,^v{Up}
+return
 
-+CapsLock::CapsLock
+:o:~vtl::
+Clipboard := vtl
+sendinput ,^v{Up}
+return
 
-CapsLock & h::CapsNav("Left")
-CapsLock & j::CapsNav("Down")
-CapsLock & k::CapsNav("Up")
-CapsLock & l::CapsNav("Right")
+:o:~vfr::
+Clipboard := vfr
+sendinput ,^v{Up}
+return
 
-CapsLock & n::CapsNav("Home")
-CapsLock & p::CapsNav("End")
+:o:~vgl::
+Clipboard := vgl
+sendinput ,^v{Up}
+return
+;;;;;;;;;;基本的view文件输入
+;btn tv 
+:o:~vbtn::
+Clipboard := vbtn
+sendinput ,^v{Left}{Left}{Enter}{Enter}{Up}
+return
 
-CapsLock & o::
-CapsLock & .::CapsNav("Right", "!")
-CapsLock & m::CapsNav("Left", "!")
+:o:~vtv::
+Clipboard := vtv
+sendinput ,^v{Left}{Left}{Enter}{Enter}{Up}
+return
 
-CapsLock & u::
-CapsLock & `;::
-CapsLock & ,::
-CapsLock & i::
-Return
+:o:~vimgView::
+Clipboard := vimgView
+sendinput ,^v{Left}{Left}{Enter}{Enter}{Up}
+return
+
+:o:~vimgbtn::
+Clipboard := vimgbtn
+sendinput ,^v{Left}{Left}{Enter}{Enter}{Up}
+return
+
+
+
+;;Gmail地址缩写  常用邮箱以及账号管理
+:o:g@::twocucao@gmail.com
+
+
+#IfWinActive ahk_class ConsoleWindowClass
+^v::
+send %Clipboard%
+return

@@ -1,59 +1,8 @@
-安装需要注意安装autohotkey_L
-这个版本需要注意用记事本或者scie这个编辑器，但是我推荐使用sublimeText3来写，原因是优雅啊！经过配置以后简直是神器。当然，用sublime来写AHK的时候记得要保存的时候编码保存UTF-8 with BOM。
+# MyAHK Scripts
 
-现在编写分为三个部分：
-MyAHK文件夹中暂时定为
-lib\Constant.ahk —— 负责存放一程序位置，常用变量，常用网址，常用文件夹地址等等
-lib\func.ahk —— 负责比较稍微有点复杂（其实一点都不复杂）的操作，已经封装成函数
-MyScript.ahk —— 主文件，用于调用各类型函数
+## ChangeLog
+Add some autohotkey from others 
 
-
-脚本启动
-^+0   脚本MyScript.ahk（暂时限定在开机运行吧）
-
-
-
-
-脚本介绍，
-
-##运行程序，基本功能##
-直接运行程序，在浏览器中国搜索选中词语，
-
-> win + s g 
-
-##文件与文件夹 ^+ 快速拷贝##
-文件属性查看，文件路径与名称快速拷贝，选中词语快速复制到TXT中
-
->
-> ctrl+ shift + 123负责打开常用文件夹
-> g = goagent
->
-> f = 新建文件夹并且以当时的日期为名称
->
-> h = 显示隐藏相关的隐藏文件
->
-> e = 显示隐藏扩展名
->
-> p = 属性窗口
->
-> c = 当前位置打开CMD（只能在显示语言为英文的时候能用，丫的，在中文环境下不能用）
-> 
-> alt + 1 2 3 4  文件名，所在路径名，此文件的全路径名，加上双\\的全路径
->
-> alt+0 本地路径打开
-
-
- 
-
-##窗口管理##
-
-> 双ESC = alt + F4
-
-##输入管理##
-
-> sm~  可以输出文字
->
-> g@ 输出 twocucao@gmail.com
-
-
-  
+1. candy --  a powerful menu that can process long text or short,specific files with specific application,and so on.
+2. kommand -- windows all in vi-style
+3. MyAHK -- a script  written or searched online and modified  by me.

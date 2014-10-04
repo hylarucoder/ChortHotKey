@@ -1,0 +1,2 @@
+先运行t.ahk, 再运行rof.ahk
+rof.ahk可以获取t.ahk中对话框的路径

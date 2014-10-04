@@ -1,0 +1,42 @@
+10
+
+dir
+0
+https://skyitachi:8443/svn/MyAHK/Custom
+https://skyitachi:8443/svn/MyAHK
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+aa76ff21-b4c6-a44a-ab6f-6585fe735654
+
+CustomHotkeys.ahk
+file
+
+
+
+add
+
+CustomLogic.ahk
+file
+
+
+
+add
+
