@@ -1,0 +1,56 @@
+10
+
+dir
+0
+https://skyitachi:8443/svn/MyAHK/Utilities/SunWind%EF%BC%8D%E8%8E%B7%E5%8F%96%E6%89%93%E5%BC%80%E5%AF%B9%E8%AF%9D%E6%A1%86%E7%9A%84%E5%BD%93%E5%89%8D%E5%AE%8C%E6%95%B4%E8%B7%AF%E5%BE%84
+https://skyitachi:8443/svn/MyAHK
+add
+
+
+
+
+
+has-props
+has-prop-mods
+
+
+
+
+
+
+
+
+
+
+
+
+aa76ff21-b4c6-a44a-ab6f-6585fe735654
+
+说明.txt
+file
+
+
+
+add
+
+t.ahk
+file
+
+
+
+add
+
+rof.ahk
+file
+
+
+
+add
+
+自动更新到对话框.ahk
+file
+
+
+
+add
+
