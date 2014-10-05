@@ -1,4 +1,33 @@
 ﻿
+
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;folder 
+
+;some Script
+;program
+P_SublimeText3 := "D:\SysConfig\st.lnk"
+P_QQ := "D:\SysConfig\qq.lnk"
+P_Go := "D:\SysConfig\go.lnk"
+P_SCITE :="D:\SysConfig\SciTE.exe.lnk"
+P_TotalCMD := "D:\SysConfig\tc.lnk"
+P_photoshop:="D:\SysConfig\ps.lnk"
+P_AirPlay:="D:\SysConfig\ap.lnk"
+
+
+
+
+;;folder
+F_Cloud := "D:\Cloud"
+F_SCRIPT := "D:\SysConfig"
+F_Downloads:= "D:\Downloads"
+F_TEMP:="D:\Downloads\Temp"
+F_StudyNow:="C:\StudyNow"
+F_IDE:="C:\IDE"
+F_DocAndCode:="Doc&Code"
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
 ;;常用语句
 T_Claim := "博客文章原创声明：`n本博客的全部文章,均为本人原创，本人拥有其版权。转载请附上原文地址,请不要用於商业用途。本人才疏学浅，如有错误，欢迎指正。联系方式twocucao@gmail.com。"
 T_MarkdownTable := "| OS X | Windows/Linux | Description |`n|------|---------------|-------------|"

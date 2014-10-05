@@ -31,7 +31,7 @@ return
 
 KMD_Init()
 {
-     global
+     global ;set global variables
      SendMode Input ; Recommended for new scripts due to its superior speed and reliability.
      SetWorkingDir %A_ScriptDir% ; Ensures a consistent starting directory.
      SetTitleMatchMode, 2
@@ -47,7 +47,7 @@ KMD_Init()
      KMD_InitialMode := 2
      KMD_LastMode := 0
      KMD_FocusNewWindow := false
-     KMD_Silent = false ; Turn off Snarl messages.
+     KMD_Silent = false ; Turn on Snarl messages. and 
 
      ; Set a listener to detect new windows. This is used by the FocusAndRun function to ensure created windows are activated and brought to the top.
      hWnd := WinExist()

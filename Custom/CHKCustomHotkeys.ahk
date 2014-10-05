@@ -1,25 +1,4 @@
-﻿;快捷键定制
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;库文件;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-#include lib\HotStringConstant.ahk
-#include lib\MySystemConstant.ahk
-#include lib\Textfunction.ahk
-#include lib\Appfunction.ahk
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;初始状态设置;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-SetTitleMatchMode, RegEx
-CoordMode, Mouse, Screen
-DetectHiddenWindows, On
-SetScrollLockState, Off
-SetCapsLockState, AlwaysOff
-
-
-If FileExist("lib\OtherRes\pal4.ico")
-    Menu, Tray, Icon, lib\OtherRes\pal4.ico
-
-Menu, Tray, Tip, MyScripts
-
-
-
-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 
 
