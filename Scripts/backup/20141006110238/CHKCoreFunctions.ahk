@@ -103,6 +103,14 @@ openTc(P_TotalCMD)
 	return
 }
 
+OpenAHK() 
+{
+;    Msgbox %SCITE%
+    Run %SCITE%
+    Sleep 50
+    WinActivate, ahk_class PX_WINDOW_CLASS
+}
+
 
 ;
 ShowDir(path)

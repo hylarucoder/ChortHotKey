@@ -31,7 +31,14 @@ F_DocAndCode:="Doc&Code"
 ;;常用语句
 T_Claim := "博客文章原创声明：`n本博客的全部文章,均为本人原创，本人拥有其版权。转载请附上原文地址,请不要用於商业用途。本人才疏学浅，如有错误，欢迎指正。联系方式twocucao@gmail.com。"
 T_MarkdownTable := "| OS X | Windows/Linux | Description |`n|------|---------------|-------------|"
-
+T_PPS =
+(
+PPS:
+我的Github地址: https://github.com/twocucao
+简书地址: http://www.jianshu.com/users/9a7e0b9da317/latest_articles
+联系方式: twocucao@gmail.com
+如果文章有不当之处,恳请指出.
+)
 
 ;;android xml 界面编程
 vll = 

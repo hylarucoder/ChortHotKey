@@ -71,44 +71,6 @@ SkSub_CreatTrayMenu()
 	Menu, tray, add, 退出,TrayHandle_Exit
 }
 
-
-/*
-SkSub_EditConfig(inifile,regex="") ;编辑配置文件！
-{
-	if not fileExist(inifile)      ;动态菜单未必有ini文件存在
-		return
-	if (regex<>"")  ;如果送了正则表达式进来
-	{
-		Loop
-		{
-			FileReadLine, L, %inifile%, %A_Index%
-			if ErrorLevel
-				break
-			if regexmatch(L,regex)
-			{
-				LineNo:=a_index
-				break
-			}
-		}
-	}
-	TextEditor:=SkSub_EnvTrans(SkSub_IniRead(GeneralSettings_ini, "General_Settings", "Default_TextEditor"))  ;默认文本编辑器
-	TextEditor:=FileExist(TextEditor) ? TextEditor:"notepad.exe"       ;文本编辑器
-	SplitPath,TextEditor,,,,namenoext
-	LineJumpArgs:=SkSub_IniRead(GeneralSettings_ini, "TextEditor's_CommandLine", namenoext)
-	if  (LineJumpArgs="Error" or LineNo="" )
-		cmd :=TextEditor " " inifile
-	else
-	{
-		cmd :=TextEditor " " LineJumpArgs
-		StringReplace,cmd,cmd,$(FILEPATH),%inifile%
-		StringReplace,cmd,cmd,$(LINENUM),%LineNo%
-	}
-	Run,%cmd%,,UseErrorLevel,TextEditor_PID
-	WinActivate ahk_pid %TextEditor_PID%
-	return
-}
-
-*/
 /*
 ╔══════════════════════════════════════╗
 <<<<托盘菜单处理部分>>>>                         ║

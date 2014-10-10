@@ -1,6 +1,11 @@
 ﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;youdao
 
+#a::
+ 
+ShowYoudaoTrans(copySelection())
+return
 
 ;启动TC
 ;老板键设置
@@ -41,11 +46,7 @@ return
 
 
 
-;sublimeText3
-^!s::
-OpenAHK()
-return
-
+;
 #s::
 Run, %P_SublimeText3%
 return
@@ -214,7 +215,10 @@ return
 
 ;;Gmail地址缩写  常用邮箱以及账号管理
 :o:g@::twocucao@gmail.com
-
+:o:~pps::
+Clipboard := PPS
+SendInput,^v
+return
 
 #IfWinActive ahk_class ConsoleWindowClass
 ^v::

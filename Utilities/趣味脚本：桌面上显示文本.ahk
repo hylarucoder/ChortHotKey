@@ -6,7 +6,7 @@ Windo_ShowTextInDesktop:
 		Return
 	Gui Gui_ShowTextInDesktop: destroy
 	Gui Gui_ShowTextInDesktop: color, red
-	Gui Gui_ShowTextInDesktop: font, s32 cFFFFFF, 微软雅黑 bold
+	Gui Gui_ShowTextInDesktop: font, s32 cFF0000, 微软雅黑 bold
 	Gui Gui_ShowTextInDesktop: -caption +toolwindow +0x02000000 ; toolwindow stops flicker of icon in taskbar
 
 
