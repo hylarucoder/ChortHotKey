@@ -1,7 +1,7 @@
 ﻿;||=================================||;
-;||                                 ||;
-;||          -= ChortHotkey =-      ||;
-;||                                 ||;
+;||                                 														||;
+;||          -= ChortHotkey =-      										||;
+;||                                 														||;
 ;||=================================||;
 
 ;ChortHotkey
@@ -18,12 +18,12 @@
 
 CHK_Init()
 
-#Include Custom\CHKCustomLogic.ahk
-#Include Custom\Constants.ahk
+#Include ChorthotKeyLibs\WelCome.ahk
+#Include ChorthotKeyLibs\Constants.ahk
 ;Initailze the script and load hotkeys;
 
-#Include Scripts\CHKCoreFunctions.ahk
-#Include Custom\CHKCustomHotkeys.ahk
+#Include ChorthotKeyLibs\CoreMethods.ahk
+#Include ChorthotKeyLibs\CustomHotkeys.ahk
 
 Return
 
@@ -59,7 +59,6 @@ SkSub_CreatTrayMenu()
 	If FileExist("Images\CHK.ico")
     	Menu, Tray, Icon, Images\CHK.ico
 	Menu, Tray, Tip, CHK   to save yourtime.
-	Menu, Tray, Icon,Images\CHK.ico
 	Menu, Tray, NoStandard
 	Menu, tray, add,  ABOUT ME , TrayHandle_About
 	Menu, tray, add ; 分隔符
@@ -96,3 +95,9 @@ LastUpdated:10/5/2014
 author: Micheal Twocucao <twocucao@gmail.com>
 )
   Return
+  
+  
+  
+  ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+

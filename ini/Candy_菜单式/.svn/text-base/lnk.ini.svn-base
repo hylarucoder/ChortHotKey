@@ -1,2 +1,0 @@
-[menu]
-totalcmd内打开目标    =run|%tc% /s=1 {file:linktarget}

@@ -7,20 +7,20 @@
 
 ;some Script
 ;program
-P_SublimeText3 := "D:\SysConfig\st.lnk"
-P_QQ := "D:\SysConfig\qq.lnk"
-P_Go := "D:\SysConfig\go.lnk"
-P_SCITE :="D:\SysConfig\SciTE.exe.lnk"
-P_TotalCMD := "D:\SysConfig\tc.lnk"
-P_photoshop:="D:\SysConfig\ps.lnk"
-P_AirPlay:="D:\SysConfig\ap.lnk"
-
+P_SublimeText3 := "C:\SysTools\st.lnk"
+P_QQ := "C:\SysTools\qq.lnk"
+P_Go := "C:\SysTools\go.lnk"
+P_SCITE :="C:\SysTools\SciTE.exe.lnk"
+P_TotalCMD := "C:\SysTools\tc.lnk"
+P_photoshop:="C:\SysTools\ps.lnk"
+P_AirPlay:="C:\SysTools\ap.lnk"
+P_Everything:="C:\Program Files\Everything\Everything.exe"
 
 
 
 ;;folder
 F_Cloud := "D:\Cloud"
-F_SCRIPT := "D:\SysConfig"
+F_SCRIPT := "C:\SysTools\"
 F_Downloads:= "D:\Downloads"
 F_TEMP:="D:\Downloads\Temp"
 F_StudyNow:="C:\StudyNow"
@@ -28,16 +28,58 @@ F_IDE:="C:\IDE"
 F_DocAndCode:="Doc&Code"
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
-;;常用语句
-T_Claim := "博客文章原创声明：`n本博客的全部文章,均为本人原创，本人拥有其版权。转载请附上原文地址,请不要用於商业用途。本人才疏学浅，如有错误，欢迎指正。联系方式twocucao@gmail.com。"
+;常用help docs
+
+H_Markdown := "http://wowubuntu.com/markdown/"
+H_Java := ""
+H_Python := ""
+H_Android := ""
+
+;;常用text
+T_hexo = 
+(
+title: 标题
+date: 2015-1-20 20:17:51
+tags: 感悟
+category: [生活，感悟]
+---
+
+正文
+<!-- more -->
+其他
+
+博客文章原创声明：
+本博文章如果没有声明为整理或者转载,均为本人原创。非商业可以任意转载分享。
+![关于本人](http://twocucao.xyz/about/#/),
+点击链接就可以web幻灯片的方式看到我对自己的介绍。
+
+我的Github地址: https://github.com/twocucao  （尽管东西不多，但是欢迎来Star和Fork，就算你们来这里提前Star Folk了）
+简书地址: http://www.jianshu.com/users/9a7e0b9da317/latest_articles （不常更新，而且几乎没有技术文章的讲解）
+联系方式: twocucao@gmail.com
+本人才疏学浅，是一个水平比较菜的程序员，如果行文之间发现任何错误，欢迎指正，特别欢迎技术上的指正。
+
+)
+
+
+
+
+
+
+
+
 T_MarkdownTable := "| OS X | Windows/Linux | Description |`n|------|---------------|-------------|"
+T_ahk =
+(
+请关注相应的ahk论坛，
+如果对ahk感兴趣的话，可以看看A大的
+autohotkey之美：
+http://zhuanlan.zhihu.com/autohotkey
+
+)
 T_PPS =
 (
 PPS:
-我的Github地址: https://github.com/twocucao
-简书地址: http://www.jianshu.com/users/9a7e0b9da317/latest_articles
-联系方式: twocucao@gmail.com
-如果文章有不当之处,恳请指出.
+
 )
 
 ;;android xml 界面编程

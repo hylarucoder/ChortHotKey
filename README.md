@@ -1,12 +1,11 @@
 # Introdustion--ChortHotkey
 ## What is ChortHotkey?
 
-A tool that enhence oprations on windows,which contain three parts
-1. **Kommand**:cross- application vi style opretions on windows
-2. **Candy**:another menu processing text,files,and so on
-3. **CHKHotkeys**:a smart rewritten by me
+A tool that enhance oprations on windows
 
-the other two scripts(1,2) is powerfull so I have to code "My most frequently opretions" into **CHKHotkeys** autohotkey scripts,and let the ops that I cannot remmember very well configured into **candy**, modify the Kommand to operate win7 like vim.
+ **CHKHotkeys**:a smart tools rewritten by me(some scripts were collected,and i rewrited them)
+
+
 
 
 ## Design principle

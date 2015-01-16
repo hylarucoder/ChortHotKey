@@ -1,5 +1,9 @@
 ﻿;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;常用程序启动;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+#z::
+Clipboard:=GetActiveBrowserURL()
+return
+
 ;youdao
 
 #a::
@@ -9,6 +13,10 @@ return
 
 ;启动TC
 ;老板键设置
+
+#w::
+openEverything(P_EVERYTHING)
+return
 #e::
 openTc(P_TotalCMD)
 return
@@ -162,8 +170,9 @@ return
 :o:tb~::
 sendinput ,%T_MarkdownTable%
 return
-
-
+:o:ahk~::
+SendInput,%T_ahk%
+return
 ;;android XML快捷输入
 ;;;;;;;五大布局xml快速输入
 :o:~vrl::
@@ -211,6 +220,9 @@ Clipboard := vimgbtn
 sendinput ,^v{Left}{Left}{Enter}{Enter}{Up}
 return
 
+::~date::
+getTimeText()
+return
 
 
 ;;Gmail地址缩写  常用邮箱以及账号管理
