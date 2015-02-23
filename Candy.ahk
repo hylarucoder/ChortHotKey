@@ -894,11 +894,10 @@ TrayHandle_About:
 <<<<cando>>>>                                                  ║
 ╚══════════════════════════════════════╝
 */
-#Include Custom\cando\TextProcessing.ahk
-#Include Custom\cando\TextFilesProcessing.ahk
+;#Include Custom\cando\TextProcessing.ahk
+;#Include Custom\cando\TextFilesProcessing.ahk
 ;~ #Include cando\TextProcessing.ahk
 ;~ #Include cando\TextProcessing.ahk
 ;~ #Include cando\TextProcessing.ahk
-	
-  
-  
+
+
