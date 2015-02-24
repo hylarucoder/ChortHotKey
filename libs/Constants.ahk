@@ -55,8 +55,9 @@ date:
 
 TEXT_HEXO2 =
 (
-tags: 感悟
-category: [生活，感悟]
+category: 技术
+tags: [Python,Android,高效]
+
 ---
 
 正文
