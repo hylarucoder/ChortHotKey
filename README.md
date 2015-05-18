@@ -6,7 +6,7 @@ A tool that enhance oprations on windows
  **CHKHotkeys**:a smart tools rewritten by me(some scripts were collected,and i rewrited them)
 
 ## 什么是ChortHotkey
-Chorthotkey是一个我使用AUTOHOTKEY很长世间以后认为的非常适合Windows习惯的一套脚本，我收集了一些脚本，然后根据自己的需要重写了一些，自己编写了一些，虽然不多，但基本上暂时足够我使用，其他的东西我就教给Candy和Vimdektop来。
+Chorthotkey是一个我使用AUTOHOTKEY很长世间以后认为的非常适合Windows习惯的一套脚本，我收集了一些脚本，然后根据自己的需要重写了一些，自己编写了一些，虽然不多，但基本上暂时足够我使用，其他的东西我就交给Candy（PS，我已经比较少用Candy了，并不意味Candy不强大，而是Candy折腾成本有些高）和Vimdektop来。
 
 
 ## Design principle
@@ -18,9 +18,10 @@ Chorthotkey是一个我使用AUTOHOTKEY很长世间以后认为的非常适合Wi
 
 ## 设计准则
 
-平衡效率和简洁
+平衡效率和简洁：
+
 效率 - 特别常用的东西应该被设置成快捷键
-简介 - 常用的东西不必要设置成快捷键，但是要足够简单的启动
+简洁 - 不是特别常用的东西不必要设置成快捷键，但是要足够简单的启动
 
 ## Usage
 
@@ -28,11 +29,6 @@ Chorthotkey是一个我使用AUTOHOTKEY很长世间以后认为的非常适合Wi
 
 
 
-## 用法（如上）
-
-PS：有部分源码中出现的Sysconfig是我的快捷方式所在地（已配置Path变量）
-
-[参考我之前的Blog](http://twocucao.xyz/2015/02/22/Chorthotkey%E5%8F%91%E5%B8%83/)
 
 
 ## 用法（如上）
@@ -48,9 +44,11 @@ Add some autohotkey from others
 <<<<<<< HEAD
 
 ## licence
+
 candy -- GPLv3   https://github.com/victorwoo/vimdesktop
+
 vimdesktop -- MIT   https://github.com/aamii/Candy
+
 chorthotkey -- MIT
 
-=======
->>>>>>> origin/master
+
