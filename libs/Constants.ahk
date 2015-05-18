@@ -55,7 +55,11 @@ date:
 
 TEXT_HEXO2 =
 (
+<<<<<<< HEAD
 categories: 技术
+=======
+category: 技术
+>>>>>>> origin/master
 tags: [Python,Android,高效]
 
 ---

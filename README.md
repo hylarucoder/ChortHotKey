@@ -35,15 +35,22 @@ PS：有部分源码中出现的Sysconfig是我的快捷方式所在地（已配
 [参考我之前的Blog](http://twocucao.xyz/2015/02/22/Chorthotkey%E5%8F%91%E5%B8%83/)
 
 
+## 用法（如上）
+
+[参考我之前的Blog](http://twocucao.xyz/2015/02/22/20150222Chorthotkey%E5%8F%91%E5%B8%83/)
+
 ## ChangeLog
 Add some autohotkey from others 
 
 1. candy --  a powerful menu that can process long text or short,specific files with specific application,and so on.
 2. vimdesktop -- windows all in vi-style
 3. Chorthotkey -- a script  written or searched online and modified  by me.
+<<<<<<< HEAD
 
 ## licence
 candy -- GPLv3   https://github.com/victorwoo/vimdesktop
 vimdesktop -- MIT   https://github.com/aamii/Candy
 chorthotkey -- MIT
 
+=======
+>>>>>>> origin/master

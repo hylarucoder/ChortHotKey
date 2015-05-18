@@ -37,12 +37,21 @@ ShowMessage("ChortHotkey", "Welcome to ChortHotkey By Laocao", "CHK.png")
 
 
 ;;快速开启BLog编写
+<<<<<<< HEAD
 ;~ /* ::/hexo::
 ;~ NOW = %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%:%A_Sec%
 ;~ RunWait ,gvim
 ;~ Clipboard = %TEXT_HEXO1% %NOW%`n%TEXT_HEXO2%
 ;~ ;MsgBox , , , %Clipboard%,3
 ;~ return */
+=======
+::/hexo::
+NOW = %A_YYYY%-%A_MM%-%A_DD% %A_Hour%:%A_Min%:%A_Sec%
+RunWait ,gvim
+Clipboard = %TEXT_HEXO1%%NOW%`n%TEXT_HEXO2%
+;MsgBox , , , %Clipboard%,3
+return
+>>>>>>> origin/master
 
 ;;AHK的声明
 :://AHK::
@@ -91,6 +100,7 @@ return
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;贴心小功能
 ;有道翻译
+<<<<<<< HEAD
 ; #a::
 ; ShowYoudaoTrans(copySelection())
 ; return
@@ -99,6 +109,10 @@ return
 clipboard := CopyToClipboard()
 FileAppend ,%clipboard%,%A_Desktop%\Test.txt
 FileAppend ,`r`n,%A_Desktop%\Test.txt
+=======
+#a::
+ShowYoudaoTrans(copySelection())
+>>>>>>> origin/master
 return
 
 ;快速cmd，其实还有其他方法，比如使用shift+右键选中，比如alt+d 输入cmd 回车，使用第三方软件等等

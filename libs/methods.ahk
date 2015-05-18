@@ -143,7 +143,11 @@ open(APP,APP_CLASS)
 	return
 }
 openFile(APP){
+<<<<<<< HEAD:libs/methods.ahk
     clipboard =""
+=======
+    clipboard =
+>>>>>>> origin/master:libs/methods.ahk
     send ^c
     ClipWait, 1
     if ErrorLevel
